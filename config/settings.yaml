@@ -1,0 +1,33 @@
+# AI Grader Agent Configuration
+# ================================
+
+# OpenAI Settings
+openai:
+  model: "gpt-4o-mini"  # Using gpt-4o-mini (vision-capable, cost-effective)
+  max_tokens: 2000
+  temperature: 0.3  # Lower = more consistent grading
+
+# Batch Processing
+batch:
+  size: 20  # Process 20 submissions per batch
+  delay_between_batches: 5  # Seconds to wait between batches (rate limiting)
+
+# Grading Settings
+grading:
+  confidence_threshold: 0.7  # Auto-flag if confidence below this
+  max_retries: 2  # Retry failed API calls
+
+# File Paths (relative to project root)
+paths:
+  assignments_dir: "assignments"
+  output_dir: "output"
+  
+# Logging
+logging:
+  level: "INFO"
+  audit_file: "grading_log.jsonl"
+
+# Privacy & Safety
+privacy:
+  log_student_names: false  # Use IDs in logs instead of names
+  redact_pii_patterns: true  # Attempt to redact emails, phone numbers from logs

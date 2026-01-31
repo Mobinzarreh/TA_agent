@@ -1,0 +1,4 @@
+Student Name,Total Score,Max Score,Percentage,Letter Grade,Feedback,Strengths,Improvements,Confidence
+Johnson,88,100,88.0,B+,[DRY RUN] This is a mock feedback response for testing the pipeline. No actual grading was performed.,[DRY RUN] Mock strength 1 | [DRY RUN] Mock strength 2,[DRY RUN] Mock improvement 1 | [DRY RUN] Mock improvement 2,0.95
+Smith,88,100,88.0,B+,[DRY RUN] This is a mock feedback response for testing the pipeline. No actual grading was performed.,[DRY RUN] Mock strength 1 | [DRY RUN] Mock strength 2,[DRY RUN] Mock improvement 1 | [DRY RUN] Mock improvement 2,0.95
+Williams,88,100,88.0,B+,[DRY RUN] This is a mock feedback response for testing the pipeline. No actual grading was performed.,[DRY RUN] Mock strength 1 | [DRY RUN] Mock strength 2,[DRY RUN] Mock improvement 1 | [DRY RUN] Mock improvement 2,0.95

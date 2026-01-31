@@ -1,0 +1,25 @@
+# Assignment 1 Configuration
+# ===========================
+
+name: "Assignment 1"
+description: "Sample assignment for testing the grader"
+
+# Rubric file (image only)
+rubric_image: "rubric.png"
+
+# Optional: Additional grading instructions
+instructions: |
+  Grade strictly according to the rubric criteria.
+  Provide constructive feedback that helps students improve.
+  Be fair and consistent across all submissions.
+
+# Grade scale (customize as needed)
+grade_scale:
+  A: 90
+  B: 80
+  C: 70
+  D: 60
+  F: 0
+
+# Maximum possible score (will be read from rubric, but can override)
+max_score: 100

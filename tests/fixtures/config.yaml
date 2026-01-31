@@ -1,0 +1,26 @@
+# Test Assignment Configuration
+# ==============================
+
+name: "Test Assignment"
+description: "Test assignment with fake submissions for dry-run testing"
+
+# Rubric file (image only)
+rubric_image: "rubric.png"
+
+# Grading instructions
+instructions: |
+  This is a test assignment for validating the grading pipeline.
+  Grade based on:
+  - Content quality and depth of analysis
+  - Organization and structure
+  - Writing clarity and grammar
+
+# Grade scale
+grade_scale:
+  A: 90
+  B: 80
+  C: 70
+  D: 60
+  F: 0
+
+max_score: 100
