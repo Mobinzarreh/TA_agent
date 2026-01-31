@@ -42,3 +42,12 @@ poetry.lock
 # OS
 .DS_Store
 Thumbs.db
+
+# Output files (keep structure, ignore generated files)
+output/**/*.csv
+output/**/*.jsonl
+!output/**/.gitkeep
+
+# Student submissions (don't commit student work)
+assignments/*/submissions/*.pdf
+!assignments/*/submissions/.gitkeep

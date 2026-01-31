@@ -4,8 +4,8 @@
 # OpenAI Settings
 openai:
   model: "gpt-4o-mini"  # Using gpt-4o-mini (vision-capable, cost-effective)
-  max_tokens: 2000
-  temperature: 0.3  # Lower = more consistent grading
+  max_tokens: 2000  # Max tokens for response
+  temperature: 0.0  # Lower = more consistent grading
 
 # Batch Processing
 batch:

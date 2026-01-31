@@ -53,9 +53,9 @@ class GraderAgent:
     
     def __init__(
         self,
-        model: str = "gpt-4o-mini",
+        model: str = "gpt-5-mini",
         max_tokens: int = 2000,
-        temperature: float = 0.3,
+        temperature: float = 0.0,
         confidence_threshold: float = 0.7,
         max_retries: int = 2
     ):
@@ -140,7 +140,7 @@ class GraderAgent:
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_content}
                     ],
-                    max_tokens=self.max_tokens,
+                    max_completion_tokens=self.max_tokens,
                     temperature=self.temperature,
                     response_format={"type": "json_object"}
                 )
@@ -247,7 +247,7 @@ class GraderAgent:
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[{"role": "user", "content": "Say 'OK' if you can read this."}],
-                max_tokens=10
+                max_completion_tokens=10
             )
             return "ok" in response.choices[0].message.content.lower()
         except Exception as e:

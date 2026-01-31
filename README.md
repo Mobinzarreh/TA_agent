@@ -17,7 +17,8 @@ An AI-powered grading assistant that uses OpenAI's GPT to grade student PDF subm
 ### 1. Prerequisites
 
 - Python 3.12+
-- OpenAI API key with GPT-4o-mini access
+- OpenAI API key (GPT-4o-mini or GPT-4o)
+- Poetry for dependency management
 
 ### 2. Installation
 
@@ -28,6 +29,9 @@ cd TA_agent
 
 # Install dependencies
 poetry install
+
+# Activate virtual environment
+poetry shell
 ```
 
 ### 3. Configuration
@@ -38,23 +42,21 @@ Create a `.env` file in the project root:
 OPENAI_API_KEY=your-api-key-here
 ```
 
-### 4. Setup an Assignment
+### 4. Setup Your Assignment
 
 ```bash
-# Create assignment folder structure
-mkdir -p assignments/assignment_1/submissions
+# Your rubric screenshot goes here
+assignments/assignment_1/rubric.png
 
-# Add your rubric screenshot
-cp /path/to/your/rubric.png assignments/assignment_1/rubric.png
-
-# Add student PDFs (named as lastname.pdf)
-cp /path/to/submissions/*.pdf assignments/assignment_1/submissions/
+# Place student PDFs here (named as lastname.pdf)
+assignments/assignment_1/submissions/smith.pdf
+assignments/assignment_1/submissions/johnson.pdf
 ```
 
 ### 5. Run Grading
 
 ```bash
-# Test with dry-run first (no API calls)
+# Test with dry-run first (no API calls, uses mock data)
 python main.py --assignment assignment_1 --dry-run
 
 # Run actual grading
@@ -177,28 +179,33 @@ Using GPT-4o-mini with single-agent design:
 ## Troubleshooting
 
 ### "No API key found"
-- Ensure `.env` file exists with `OPENAI_API_KEY=sk-...`
+- Ensure `.env` file exists in project root with `OPENAI_API_KEY=sk-...`
+- Verify the key starts with `sk-proj-` or `sk-`
 
 ### "Rubric image not found"
-- Add `rubric.png` to `assignments/<name>/` folder
+- Add `rubric.png` to `assignments/assignment_1/` folder
+- Supported formats: `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`
 
 ### "No PDF files found"
-- Add student PDFs to `assignments/<name>/submissions/`
-- Ensure files are named `lastname.pdf`
+- Add student PDFs to `assignments/assignment_1/submissions/`
+- Ensure files are named `lastname.pdf` (e.g., `smith.pdf`)
 
 ### PDF extraction fails
-- Some scanned PDFs may not extract text
-- Consider using OCR preprocessing
-- Flagged submissions show in flagged.csv
+- Some scanned PDFs may not extract text properly
+- Flagged submissions show in `flagged.csv` for manual review
+- Consider using OCR preprocessing for scanned documents
+
+### API errors
+- Check your OpenAI API key is valid and has credits
+- Verify you're using a vision-capable model (`gpt-4o-mini` or `gpt-4o`)
+- Reduce `batch_size` in `config/settings.yaml` if hitting rate limits
 
 ## Testing
 
-```bash
-# Run all tests
-poetry run pytest tests/ -v
+Run with dry-run mode to test setup without API calls:
 
-# Run specific test
-poetry run pytest tests/test_grader.py::TestPDFProcessor -v
+```bash
+python main.py --assignment assignment_1 --dry-run
 ```
 
 ## License
